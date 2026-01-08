@@ -88,15 +88,21 @@ def load_and_validate_data(csv_path, config):
 
 
 def create_cart_model(config):
-    """Create AggregateCART model from configuration"""
+    """Create AggregateCART model from configuration with enhanced hyperparameters"""
     # Extract hyperparameters with defaults
     hyperparams = config.get('hyperparameters', {})
 
     cart_params = {
-        'max_depth': hyperparams.get('max_depth', 10),
-        'min_samples_leaf': hyperparams.get('min_samples_leaf', 5),
-        'min_impurity_decrease': hyperparams.get('min_impurity_decrease', 0.001),
-        'random_state': hyperparams.get('random_state', None)
+        'criterion': hyperparams.get('criterion', 'gini'),
+        'max_depth': hyperparams.get('max_depth'),
+        'min_samples_split': hyperparams.get('min_samples_split', 2),
+        'min_samples_leaf': hyperparams.get('min_samples_leaf', 1),
+        'min_weight_fraction_leaf': hyperparams.get('min_weight_fraction_leaf', 0.0),
+        'max_features': hyperparams.get('max_features'),
+        'random_state': hyperparams.get('random_state'),
+        'max_leaf_nodes': hyperparams.get('max_leaf_nodes'),
+        'min_impurity_decrease': hyperparams.get('min_impurity_decrease', 0.0),
+        'ccp_alpha': hyperparams.get('ccp_alpha', 0.0)
     }
 
     return AggregateCART(**cart_params)
@@ -137,9 +143,13 @@ def print_model_info(cart, config):
     # Show hyperparameters used
     hyperparams = config.get('hyperparameters', {})
     print(f"\n⚙️  Hyperparameters used:")
-    print(f"   max_depth: {hyperparams.get('max_depth', 10)}")
-    print(f"   min_samples_leaf: {hyperparams.get('min_samples_leaf', 5)}")
-    print(f"   min_impurity_decrease: {hyperparams.get('min_impurity_decrease', 0.001)}")
+    print(f"   criterion: {hyperparams.get('criterion', 'gini')}")
+    print(f"   max_depth: {hyperparams.get('max_depth', 'None')}")
+    print(f"   min_samples_split: {hyperparams.get('min_samples_split', 2)}")
+    print(f"   min_samples_leaf: {hyperparams.get('min_samples_leaf', 1)}")
+    print(f"   max_features: {hyperparams.get('max_features', 'None')}")
+    print(f"   min_impurity_decrease: {hyperparams.get('min_impurity_decrease', 0.0)}")
+    print(f"   random_state: {hyperparams.get('random_state', 'None')}")
 
 
 def main():

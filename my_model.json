@@ -3,13 +3,13 @@
     "type": "AggregateCART",
     "criterion": "gini",
     "max_depth": 6,
-    "min_samples_split": 20,
-    "min_samples_leaf": 100,
+    "min_samples_split": 100,
+    "min_samples_leaf": 50,
     "min_weight_fraction_leaf": 0.0,
     "max_features": null,
     "random_state": 42,
     "max_leaf_nodes": null,
-    "min_impurity_decrease": 0.001,
+    "min_impurity_decrease": 1e-06,
     "ccp_alpha": 0.0,
     "n_features": 354,
     "feature_names": [
@@ -758,7 +758,7 @@
       1
     ],
     "tree_depth": 6,
-    "n_leaves": 27
+    "n_leaves": 34
   },
   "tree": {
     "type": "internal",
@@ -788,17 +788,132 @@
         "bad_count": 1617,
         "depth": 2,
         "left": {
-          "type": "leaf",
-          "prediction": 1,
-          "class_probabilities": [
-            0.09646581691772885,
-            0.9035341830822712
-          ],
+          "type": "internal",
+          "feature": "zone=221",
+          "split_value": true,
           "samples": 13808,
           "impurity": 0.174320326168248,
           "good_count": 12476,
           "bad_count": 1332,
-          "depth": 3
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "zone=194",
+            "split_value": true,
+            "samples": 13560,
+            "impurity": 0.16953228739742965,
+            "good_count": 12292,
+            "bad_count": 1268,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "sla=Immediate",
+              "split_value": true,
+              "samples": 13491,
+              "impurity": 0.1670511929148515,
+              "good_count": 12250,
+              "bad_count": 1241,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.09645146162263561,
+                  0.9035485383773644
+                ],
+                "samples": 12794,
+                "impurity": 0.17429715434698578,
+                "good_count": 11560,
+                "bad_count": 1234,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.010043041606886656,
+                  0.9899569583931134
+                ],
+                "samples": 697,
+                "impurity": 0.019884357844337952,
+                "good_count": 690,
+                "bad_count": 7,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.391304347826087,
+                0.6086956521739131
+              ],
+              "samples": 69,
+              "impurity": 0.4763705103969753,
+              "good_count": 42,
+              "bad_count": 27,
+              "depth": 5
+            }
+          },
+          "right": {
+            "type": "internal",
+            "feature": "booking_type=one_way_trip",
+            "split_value": true,
+            "samples": 248,
+            "impurity": 0.38293444328824133,
+            "good_count": 184,
+            "bad_count": 64,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "estimated_usage_bins=GT_3_LTE_4_HOURS",
+              "split_value": true,
+              "samples": 158,
+              "impurity": 0.29971158468194203,
+              "good_count": 129,
+              "bad_count": 29,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.15463917525773196,
+                  0.845360824742268
+                ],
+                "samples": 97,
+                "impurity": 0.2614518014666809,
+                "good_count": 82,
+                "bad_count": 15,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.22950819672131148,
+                  0.7704918032786885
+                ],
+                "samples": 61,
+                "impurity": 0.3536683687180866,
+                "good_count": 47,
+                "bad_count": 14,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.3888888888888889,
+                0.6111111111111112
+              ],
+              "samples": 90,
+              "impurity": 0.47530864197530853,
+              "good_count": 55,
+              "bad_count": 35,
+              "depth": 5
+            }
+          }
         },
         "right": {
           "type": "internal",
@@ -811,7 +926,7 @@
           "depth": 3,
           "left": {
             "type": "internal",
-            "feature": "city=Hyderabad",
+            "feature": "zone=217",
             "split_value": true,
             "samples": 936,
             "impurity": 0.3584607166337934,
@@ -820,37 +935,37 @@
             "depth": 4,
             "left": {
               "type": "internal",
-              "feature": "dayType=FRIDAY",
+              "feature": "city=Mumbai",
               "split_value": true,
-              "samples": 757,
-              "impurity": 0.33337463288479685,
-              "good_count": 597,
-              "bad_count": 160,
+              "samples": 874,
+              "impurity": 0.3732778618519237,
+              "good_count": 657,
+              "bad_count": 217,
               "depth": 5,
               "left": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.15609756097560976,
-                  0.8439024390243902
+                  0.2795031055900621,
+                  0.7204968944099379
                 ],
-                "samples": 410,
-                "impurity": 0.2634622248661511,
-                "good_count": 346,
-                "bad_count": 64,
+                "samples": 644,
+                "impurity": 0.4027622391111454,
+                "good_count": 464,
+                "bad_count": 180,
                 "depth": 6
               },
               "right": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.276657060518732,
-                  0.723342939481268
+                  0.1608695652173913,
+                  0.8391304347826087
                 ],
-                "samples": 347,
-                "impurity": 0.40023586276773326,
-                "good_count": 251,
-                "bad_count": 96,
+                "samples": 230,
+                "impurity": 0.2699810964083176,
+                "good_count": 193,
+                "bad_count": 37,
                 "depth": 6
               }
             },
@@ -858,13 +973,13 @@
               "type": "leaf",
               "prediction": 1,
               "class_probabilities": [
-                0.329608938547486,
-                0.6703910614525139
+                0.03225806451612903,
+                0.967741935483871
               ],
-              "samples": 179,
-              "impurity": 0.4419337723541712,
-              "good_count": 120,
-              "bad_count": 59,
+              "samples": 62,
+              "impurity": 0.06243496357960443,
+              "good_count": 60,
+              "bad_count": 2,
               "depth": 5
             }
           },
@@ -914,17 +1029,40 @@
               }
             },
             "right": {
-              "type": "leaf",
-              "prediction": 1,
-              "class_probabilities": [
-                0.050445103857566766,
-                0.9495548961424333
-              ],
+              "type": "internal",
+              "feature": "zone=219",
+              "split_value": true,
               "samples": 337,
               "impurity": 0.09580079070873215,
               "good_count": 320,
               "bad_count": 17,
-              "depth": 5
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.058091286307053944,
+                  0.941908713692946
+                ],
+                "samples": 241,
+                "impurity": 0.10943337752449178,
+                "good_count": 227,
+                "bad_count": 14,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.03125,
+                  0.96875
+                ],
+                "samples": 96,
+                "impurity": 0.060546875,
+                "good_count": 93,
+                "bad_count": 3,
+                "depth": 6
+              }
             }
           }
         }
@@ -958,7 +1096,7 @@
             "depth": 4,
             "left": {
               "type": "internal",
-              "feature": "source=android",
+              "feature": "city=Hyderabad",
               "split_value": true,
               "samples": 1489,
               "impurity": 0.2115265698173443,
@@ -969,26 +1107,26 @@
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.07771260997067449,
-                  0.9222873900293255
+                  0.10952040085898354,
+                  0.8904795991410165
                 ],
-                "samples": 682,
-                "impurity": 0.14334672044444075,
-                "good_count": 629,
-                "bad_count": 53,
+                "samples": 1397,
+                "impurity": 0.1950513653093422,
+                "good_count": 1244,
+                "bad_count": 153,
                 "depth": 6
               },
               "right": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.15613382899628253,
-                  0.8438661710037175
+                  0.2826086956521739,
+                  0.717391304347826
                 ],
-                "samples": 807,
-                "impurity": 0.2635121128784841,
-                "good_count": 681,
-                "bad_count": 126,
+                "samples": 92,
+                "impurity": 0.4054820415879017,
+                "good_count": 66,
+                "bad_count": 26,
                 "depth": 6
               }
             },
@@ -1031,7 +1169,7 @@
           },
           "right": {
             "type": "internal",
-            "feature": "source=android",
+            "feature": "booking_type=outstation",
             "split_value": true,
             "samples": 353,
             "impurity": 0.4085098187129341,
@@ -1039,45 +1177,91 @@
             "bad_count": 101,
             "depth": 4,
             "left": {
-              "type": "leaf",
-              "prediction": 1,
-              "class_probabilities": [
-                0.23776223776223776,
-                0.7622377622377622
-              ],
-              "samples": 143,
-              "impurity": 0.3624627121130619,
-              "good_count": 109,
-              "bad_count": 34,
-              "depth": 5
+              "type": "internal",
+              "feature": "pickUpHourOfDay=MORNING",
+              "split_value": true,
+              "samples": 291,
+              "impurity": 0.4397680707596745,
+              "good_count": 196,
+              "bad_count": 95,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.3880597014925373,
+                  0.6119402985074627
+                ],
+                "samples": 201,
+                "impurity": 0.4749387391401203,
+                "good_count": 123,
+                "bad_count": 78,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.18888888888888888,
+                  0.8111111111111111
+                ],
+                "samples": 90,
+                "impurity": 0.30641975308641967,
+                "good_count": 73,
+                "bad_count": 17,
+                "depth": 6
+              }
             },
             "right": {
               "type": "leaf",
               "prediction": 1,
               "class_probabilities": [
-                0.319047619047619,
-                0.680952380952381
+                0.0967741935483871,
+                0.9032258064516129
               ],
-              "samples": 210,
-              "impurity": 0.4345124716553288,
-              "good_count": 143,
-              "bad_count": 67,
+              "samples": 62,
+              "impurity": 0.17481789802289294,
+              "good_count": 56,
+              "bad_count": 6,
               "depth": 5
             }
           }
         },
         "right": {
-          "type": "leaf",
-          "prediction": 1,
-          "class_probabilities": [
-            0.4172661870503597,
-            0.5827338129496403
-          ],
+          "type": "internal",
+          "feature": "city=Mumbai",
+          "split_value": true,
           "samples": 139,
           "impurity": 0.4863102323896278,
           "good_count": 81,
           "bad_count": 58,
-          "depth": 3
+          "depth": 3,
+          "left": {
+            "type": "leaf",
+            "prediction": 1,
+            "class_probabilities": [
+              0.49411764705882355,
+              0.5058823529411764
+            ],
+            "samples": 85,
+            "impurity": 0.4999307958477509,
+            "good_count": 43,
+            "bad_count": 42,
+            "depth": 4
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 1,
+            "class_probabilities": [
+              0.2962962962962963,
+              0.7037037037037037
+            ],
+            "samples": 54,
+            "impurity": 0.41700960219478733,
+            "good_count": 38,
+            "bad_count": 16,
+            "depth": 4
+          }
         }
       }
     },
@@ -1101,7 +1285,7 @@
         "depth": 2,
         "left": {
           "type": "internal",
-          "feature": "zone_demand_popularity=POPULARITY_INDEX_1",
+          "feature": "zone_demand_popularity=POPULARITY_INDEX_5",
           "split_value": true,
           "samples": 868,
           "impurity": 0.2056398521947802,
@@ -1110,149 +1294,80 @@
           "depth": 3,
           "left": {
             "type": "internal",
-            "feature": "city=Mumbai",
+            "feature": "city=Hyderabad",
             "split_value": true,
-            "samples": 496,
-            "impurity": 0.26228375390218517,
-            "good_count": 419,
-            "bad_count": 77,
+            "samples": 811,
+            "impurity": 0.1837374813940864,
+            "good_count": 728,
+            "bad_count": 83,
             "depth": 4,
             "left": {
               "type": "internal",
-              "feature": "city=Bangalore",
+              "feature": "zone_demand_popularity=POPULARITY_INDEX_1",
               "split_value": true,
-              "samples": 237,
-              "impurity": 0.32302515622496397,
-              "good_count": 189,
-              "bad_count": 48,
+              "samples": 721,
+              "impurity": 0.1525851173724273,
+              "good_count": 661,
+              "bad_count": 60,
               "depth": 5,
               "left": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.27184466019417475,
-                  0.7281553398058253
+                  0.11392405063291139,
+                  0.8860759493670886
                 ],
-                "samples": 103,
-                "impurity": 0.3958902818361769,
-                "good_count": 75,
-                "bad_count": 28,
+                "samples": 395,
+                "impurity": 0.2018907226406026,
+                "good_count": 350,
+                "bad_count": 45,
                 "depth": 6
               },
               "right": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.14925373134328357,
-                  0.8507462686567164
+                  0.046012269938650305,
+                  0.9539877300613497
                 ],
-                "samples": 134,
-                "impurity": 0.25395411004678103,
-                "good_count": 114,
-                "bad_count": 20,
+                "samples": 326,
+                "impurity": 0.08779028190748606,
+                "good_count": 311,
+                "bad_count": 15,
                 "depth": 6
               }
             },
             "right": {
-              "type": "internal",
-              "feature": "source=android",
-              "split_value": true,
-              "samples": 259,
-              "impurity": 0.19886405986792077,
-              "good_count": 230,
-              "bad_count": 29,
-              "depth": 5,
-              "left": {
-                "type": "leaf",
-                "prediction": 1,
-                "class_probabilities": [
-                  0.13071895424836602,
-                  0.869281045751634
-                ],
-                "samples": 153,
-                "impurity": 0.22726301849715913,
-                "good_count": 133,
-                "bad_count": 20,
-                "depth": 6
-              },
-              "right": {
-                "type": "leaf",
-                "prediction": 1,
-                "class_probabilities": [
-                  0.08490566037735849,
-                  0.9150943396226415
-                ],
-                "samples": 106,
-                "impurity": 0.15539337842648626,
-                "good_count": 97,
-                "bad_count": 9,
-                "depth": 6
-              }
-            }
-          },
-          "right": {
-            "type": "internal",
-            "feature": "city=Bangalore",
-            "split_value": true,
-            "samples": 372,
-            "impurity": 0.12070759625390237,
-            "good_count": 348,
-            "bad_count": 24,
-            "depth": 4,
-            "left": {
               "type": "leaf",
               "prediction": 1,
               "class_probabilities": [
-                0.11023622047244094,
-                0.889763779527559
+                0.25555555555555554,
+                0.7444444444444445
               ],
-              "samples": 127,
-              "impurity": 0.19616839233678474,
-              "good_count": 113,
-              "bad_count": 14,
+              "samples": 90,
+              "impurity": 0.38049382716049385,
+              "good_count": 67,
+              "bad_count": 23,
               "depth": 5
-            },
-            "right": {
-              "type": "internal",
-              "feature": "source=ios",
-              "split_value": true,
-              "samples": 245,
-              "impurity": 0.07830070803831746,
-              "good_count": 235,
-              "bad_count": 10,
-              "depth": 5,
-              "left": {
-                "type": "leaf",
-                "prediction": 1,
-                "class_probabilities": [
-                  0.016666666666666666,
-                  0.9833333333333333
-                ],
-                "samples": 120,
-                "impurity": 0.032777777777777795,
-                "good_count": 118,
-                "bad_count": 2,
-                "depth": 6
-              },
-              "right": {
-                "type": "leaf",
-                "prediction": 1,
-                "class_probabilities": [
-                  0.064,
-                  0.936
-                ],
-                "samples": 125,
-                "impurity": 0.11980799999999991,
-                "good_count": 117,
-                "bad_count": 8,
-                "depth": 6
-              }
             }
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 1,
+            "class_probabilities": [
+              0.3157894736842105,
+              0.6842105263157895
+            ],
+            "samples": 57,
+            "impurity": 0.43213296398891965,
+            "good_count": 39,
+            "bad_count": 18,
+            "depth": 4
           }
         },
         "right": {
           "type": "internal",
-          "feature": "zone_demand_popularity=POPULARITY_INDEX_1",
+          "feature": "city=Chennai",
           "split_value": true,
           "samples": 1294,
           "impurity": 0.37997271917230635,
@@ -1263,111 +1378,157 @@
             "type": "internal",
             "feature": "zone_demand_popularity=POPULARITY_INDEX_4",
             "split_value": true,
-            "samples": 702,
-            "impurity": 0.4111046176573243,
-            "good_count": 499,
-            "bad_count": 203,
-            "depth": 4,
-            "left": {
-              "type": "leaf",
-              "prediction": 1,
-              "class_probabilities": [
-                0.2689243027888446,
-                0.7310756972111554
-              ],
-              "samples": 502,
-              "impurity": 0.39320804431675693,
-              "good_count": 367,
-              "bad_count": 135,
-              "depth": 5
-            },
-            "right": {
-              "type": "leaf",
-              "prediction": 1,
-              "class_probabilities": [
-                0.34,
-                0.66
-              ],
-              "samples": 200,
-              "impurity": 0.4488,
-              "good_count": 132,
-              "bad_count": 68,
-              "depth": 5
-            }
-          },
-          "right": {
-            "type": "internal",
-            "feature": "zone=219",
-            "split_value": true,
-            "samples": 592,
-            "impurity": 0.3370103634039444,
-            "good_count": 465,
-            "bad_count": 127,
+            "samples": 1228,
+            "impurity": 0.3907561353436111,
+            "good_count": 901,
+            "bad_count": 327,
             "depth": 4,
             "left": {
               "type": "internal",
-              "feature": "source=ios",
+              "feature": "zone=216",
               "split_value": true,
-              "samples": 371,
-              "impurity": 0.2637876795431593,
-              "good_count": 313,
-              "bad_count": 58,
+              "samples": 1079,
+              "impurity": 0.3667591160249468,
+              "good_count": 818,
+              "bad_count": 261,
               "depth": 5,
               "left": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.1256544502617801,
-                  0.8743455497382199
+                  0.2560240963855422,
+                  0.7439759036144579
                 ],
-                "samples": 191,
-                "impurity": 0.21973081878237988,
-                "good_count": 167,
-                "bad_count": 24,
+                "samples": 996,
+                "impurity": 0.3809515169110176,
+                "good_count": 741,
+                "bad_count": 255,
                 "depth": 6
               },
               "right": {
                 "type": "leaf",
                 "prediction": 1,
                 "class_probabilities": [
-                  0.18888888888888888,
-                  0.8111111111111111
+                  0.07228915662650602,
+                  0.927710843373494
                 ],
-                "samples": 180,
-                "impurity": 0.30641975308641967,
-                "good_count": 146,
-                "bad_count": 34,
+                "samples": 83,
+                "impurity": 0.13412686892146897,
+                "good_count": 77,
+                "bad_count": 6,
                 "depth": 6
               }
             },
             "right": {
-              "type": "leaf",
-              "prediction": 1,
-              "class_probabilities": [
-                0.31221719457013575,
-                0.6877828054298643
-              ],
-              "samples": 221,
-              "impurity": 0.42947523596977943,
-              "good_count": 152,
-              "bad_count": 69,
-              "depth": 5
+              "type": "internal",
+              "feature": "city=Mumbai",
+              "split_value": true,
+              "samples": 149,
+              "impurity": 0.49349128417638843,
+              "good_count": 83,
+              "bad_count": 66,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.3939393939393939,
+                  0.6060606060606061
+                ],
+                "samples": 66,
+                "impurity": 0.47750229568411384,
+                "good_count": 40,
+                "bad_count": 26,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.4819277108433735,
+                  0.5180722891566265
+                ],
+                "samples": 83,
+                "impurity": 0.4993467847292785,
+                "good_count": 43,
+                "bad_count": 40,
+                "depth": 6
+              }
             }
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 1,
+            "class_probabilities": [
+              0.045454545454545456,
+              0.9545454545454546
+            ],
+            "samples": 66,
+            "impurity": 0.08677685950413205,
+            "good_count": 63,
+            "bad_count": 3,
+            "depth": 4
           }
         }
       },
       "right": {
-        "type": "leaf",
-        "prediction": 0,
-        "class_probabilities": [
-          0.5416666666666666,
-          0.4583333333333333
-        ],
+        "type": "internal",
+        "feature": "zone_demand_popularity=POPULARITY_INDEX_2",
+        "split_value": true,
         "samples": 168,
         "impurity": 0.4965277777777779,
         "good_count": 77,
         "bad_count": 91,
-        "depth": 2
+        "depth": 2,
+        "left": {
+          "type": "internal",
+          "feature": "zone_demand_popularity=POPULARITY_INDEX_4",
+          "split_value": true,
+          "samples": 111,
+          "impurity": 0.4882720558396234,
+          "good_count": 47,
+          "bad_count": 64,
+          "depth": 3,
+          "left": {
+            "type": "leaf",
+            "prediction": 0,
+            "class_probabilities": [
+              0.6333333333333333,
+              0.36666666666666664
+            ],
+            "samples": 60,
+            "impurity": 0.46444444444444444,
+            "good_count": 22,
+            "bad_count": 38,
+            "depth": 4
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 0,
+            "class_probabilities": [
+              0.5098039215686274,
+              0.49019607843137253
+            ],
+            "samples": 51,
+            "impurity": 0.49980776624375245,
+            "good_count": 25,
+            "bad_count": 26,
+            "depth": 4
+          }
+        },
+        "right": {
+          "type": "leaf",
+          "prediction": 1,
+          "class_probabilities": [
+            0.47368421052631576,
+            0.5263157894736842
+          ],
+          "samples": 57,
+          "impurity": 0.4986149584487536,
+          "good_count": 30,
+          "bad_count": 27,
+          "depth": 3
+        }
       }
     }
   }

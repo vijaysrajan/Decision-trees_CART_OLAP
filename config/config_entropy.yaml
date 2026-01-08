@@ -1,4 +1,4 @@
-# Configuration for CART Decision Tree Training
+# Configuration for CART Decision Tree Training with Entropy Criterion
 # For DUAggregateData.csv dataset
 
 # Feature columns to use for training
@@ -19,23 +19,23 @@ target_bad_col: DU_Bad_Count    # Count of negative class samples
 
 # Hyperparameters for CART algorithm (sklearn-compatible)
 hyperparameters:
-  criterion: "gini"                # Impurity criterion: "gini", "entropy", "log_loss"
-  max_depth: 6                     # Maximum tree depth (matches theta sketches)
-  min_samples_split: 100            # Minimum samples required to split an internal node
-  min_samples_leaf: 50            # Minimum samples required for a leaf node
-  min_weight_fraction_leaf: 0.0    # Minimum weighted fraction for leaf (not implemented)
-  max_features: null               # Number of features to consider: int, float, "sqrt", "log2", null
-  random_state: 42                 # For reproducible results when max_features is used
-  max_leaf_nodes: null             # Maximum number of leaf nodes (not fully implemented)
-  min_impurity_decrease: 0.000001     # Minimum impurity decrease for splits
-  ccp_alpha: 0.0                   # Cost complexity pruning parameter (not implemented)
+  criterion: "entropy"             # Using entropy for information-theoretic splits
+  max_depth: 8                     # Slightly deeper tree with entropy
+  min_samples_split: 50            # Conservative splitting
+  min_samples_leaf: 80             # Larger leaf constraint
+  min_weight_fraction_leaf: 0.0    # Not implemented for aggregate data
+  max_features: "sqrt"             # Use square root of features for each split
+  random_state: 42                 # For reproducible results
+  max_leaf_nodes: null             # No leaf limit
+  min_impurity_decrease: 0.002     # Slightly higher threshold
+  ccp_alpha: 0.0                   # No pruning
 
 # Model metadata
 model_info:
-  name: "DU_Aggregate_CART"
-  description: "CART decision tree for ride-hailing demand-utilization prediction"
+  name: "DU_Aggregate_CART_Entropy"
+  description: "CART decision tree with entropy criterion for ride-hailing demand-utilization prediction"
   dataset: "DUAggregateData.csv"
-  algorithm: "CART with one-hot encoding"
+  algorithm: "CART with one-hot encoding and entropy splitting"
   target_type: "binary_classification"
 
 # Optional: Feature engineering settings
