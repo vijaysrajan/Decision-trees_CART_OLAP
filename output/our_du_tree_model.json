@@ -1,0 +1,868 @@
+{
+  "model_info": {
+    "type": "AggregateCART",
+    "max_depth": 6,
+    "min_samples_leaf": 20,
+    "min_impurity_decrease": 0.001,
+    "n_features": 33,
+    "feature_names": [
+      "city_Bangalore",
+      "city_Chennai",
+      "city_Delhi NCR",
+      "city_Hyderabad",
+      "city_Mumbai",
+      "city_Pune",
+      "pickUpHourOfDay_AFTERNOON",
+      "pickUpHourOfDay_EARLY",
+      "pickUpHourOfDay_EVENING",
+      "pickUpHourOfDay_LATENIGHT",
+      "pickUpHourOfDay_MORNING",
+      "pickUpHourOfDay_NIGHT",
+      "pickUpHourOfDay_VERYLATE",
+      "dayType_FRIDAY",
+      "dayType_NORMAL_WEEKDAY",
+      "dayType_WEEKEND",
+      "zone_demand_popularity_POPULARITY_INDEX_1",
+      "zone_demand_popularity_POPULARITY_INDEX_2",
+      "zone_demand_popularity_POPULARITY_INDEX_3",
+      "zone_demand_popularity_POPULARITY_INDEX_4",
+      "zone_demand_popularity_POPULARITY_INDEX_5",
+      "booking_type_12hr",
+      "booking_type_2hr",
+      "booking_type_4hr",
+      "booking_type_5hr",
+      "booking_type_6hr",
+      "booking_type_8hr",
+      "booking_type_one_way_outstation",
+      "booking_type_one_way_trip",
+      "booking_type_outstation",
+      "booking_type_round_trip",
+      "sla_Immediate",
+      "sla_Scheduled"
+    ],
+    "classes": [
+      0,
+      1
+    ],
+    "tree_depth": 6,
+    "n_leaves": 36
+  },
+  "tree": {
+    "type": "internal",
+    "feature": "pickUpHourOfDay_VERYLATE",
+    "split_value": true,
+    "samples": 20343,
+    "impurity": 0.22353152310702407,
+    "good_count": 17735,
+    "bad_count": 2608,
+    "depth": 0,
+    "left": {
+      "type": "internal",
+      "feature": "zone_demand_popularity_POPULARITY_INDEX_5",
+      "split_value": true,
+      "samples": 18013,
+      "impurity": 0.2047887908536261,
+      "good_count": 15927,
+      "bad_count": 2086,
+      "depth": 1,
+      "left": {
+        "type": "internal",
+        "feature": "pickUpHourOfDay_LATENIGHT",
+        "split_value": true,
+        "samples": 15446,
+        "impurity": 0.18745573477247257,
+        "good_count": 13829,
+        "bad_count": 1617,
+        "depth": 2,
+        "left": {
+          "type": "leaf",
+          "prediction": 1,
+          "class_probabilities": [
+            0.09646581691772885,
+            0.9035341830822712
+          ],
+          "samples": 13808,
+          "impurity": 0.174320326168248,
+          "good_count": 12476,
+          "bad_count": 1332,
+          "depth": 3
+        },
+        "right": {
+          "type": "internal",
+          "feature": "dayType_NORMAL_WEEKDAY",
+          "split_value": true,
+          "samples": 1638,
+          "impurity": 0.28743844677910624,
+          "good_count": 1353,
+          "bad_count": 285,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "city_Delhi NCR",
+            "split_value": true,
+            "samples": 936,
+            "impurity": 0.3584607166337934,
+            "good_count": 717,
+            "bad_count": 219,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "city_Hyderabad",
+              "split_value": true,
+              "samples": 886,
+              "impurity": 0.3445622652854283,
+              "good_count": 690,
+              "bad_count": 196,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.19377652050919378,
+                  0.8062234794908062
+                ],
+                "samples": 707,
+                "impurity": 0.3124543612170876,
+                "good_count": 570,
+                "bad_count": 137,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.329608938547486,
+                  0.6703910614525139
+                ],
+                "samples": 179,
+                "impurity": 0.4419337723541712,
+                "good_count": 120,
+                "bad_count": 59,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "internal",
+              "feature": "zone_demand_popularity_POPULARITY_INDEX_2",
+              "split_value": true,
+              "samples": 50,
+              "impurity": 0.4967999999999999,
+              "good_count": 27,
+              "bad_count": 23,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 0,
+                "class_probabilities": [
+                  0.5882352941176471,
+                  0.4117647058823529
+                ],
+                "samples": 17,
+                "impurity": 0.4844290657439446,
+                "good_count": 7,
+                "bad_count": 10,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.3939393939393939,
+                  0.6060606060606061
+                ],
+                "samples": 33,
+                "impurity": 0.47750229568411384,
+                "good_count": 20,
+                "bad_count": 13,
+                "depth": 6
+              }
+            }
+          },
+          "right": {
+            "type": "internal",
+            "feature": "city_Delhi NCR",
+            "split_value": true,
+            "samples": 702,
+            "impurity": 0.17035576009934994,
+            "good_count": 636,
+            "bad_count": 66,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "booking_type_8hr",
+              "split_value": true,
+              "samples": 667,
+              "impurity": 0.14881015264481712,
+              "good_count": 613,
+              "bad_count": 54,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.07957957957957958,
+                  0.9204204204204204
+                ],
+                "samples": 666,
+                "impurity": 0.14649334018703386,
+                "good_count": 613,
+                "bad_count": 53,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 0,
+                "class_probabilities": [
+                  1.0,
+                  0.0
+                ],
+                "samples": 1,
+                "impurity": 0.0,
+                "good_count": 0,
+                "bad_count": 1,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.34285714285714286,
+                0.6571428571428571
+              ],
+              "samples": 35,
+              "impurity": 0.45061224489795915,
+              "good_count": 23,
+              "bad_count": 12,
+              "depth": 5
+            }
+          }
+        }
+      },
+      "right": {
+        "type": "internal",
+        "feature": "pickUpHourOfDay_LATENIGHT",
+        "split_value": true,
+        "samples": 2567,
+        "impurity": 0.2986459192814497,
+        "good_count": 2098,
+        "bad_count": 469,
+        "depth": 2,
+        "left": {
+          "type": "internal",
+          "feature": "city_Pune",
+          "split_value": true,
+          "samples": 2428,
+          "impurity": 0.28124211220548845,
+          "good_count": 2017,
+          "bad_count": 411,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "city_Mumbai",
+            "split_value": true,
+            "samples": 2075,
+            "impurity": 0.2541559007112788,
+            "good_count": 1765,
+            "bad_count": 310,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "city_Hyderabad",
+              "split_value": true,
+              "samples": 1489,
+              "impurity": 0.2115265698173443,
+              "good_count": 1310,
+              "bad_count": 179,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.10952040085898354,
+                  0.8904795991410165
+                ],
+                "samples": 1397,
+                "impurity": 0.1950513653093422,
+                "good_count": 1244,
+                "bad_count": 153,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.2826086956521739,
+                  0.717391304347826
+                ],
+                "samples": 92,
+                "impurity": 0.4054820415879017,
+                "good_count": 66,
+                "bad_count": 26,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "internal",
+              "feature": "booking_type_round_trip",
+              "split_value": true,
+              "samples": 586,
+              "impurity": 0.3471502288902608,
+              "good_count": 455,
+              "bad_count": 131,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.17884130982367757,
+                  0.8211586901763224
+                ],
+                "samples": 397,
+                "impurity": 0.293714191448458,
+                "good_count": 326,
+                "bad_count": 71,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.31746031746031744,
+                  0.6825396825396826
+                ],
+                "samples": 189,
+                "impurity": 0.4333585285966238,
+                "good_count": 129,
+                "bad_count": 60,
+                "depth": 6
+              }
+            }
+          },
+          "right": {
+            "type": "internal",
+            "feature": "booking_type_outstation",
+            "split_value": true,
+            "samples": 353,
+            "impurity": 0.4085098187129341,
+            "good_count": 252,
+            "bad_count": 101,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "pickUpHourOfDay_MORNING",
+              "split_value": true,
+              "samples": 291,
+              "impurity": 0.4397680707596745,
+              "good_count": 196,
+              "bad_count": 95,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.3880597014925373,
+                  0.6119402985074627
+                ],
+                "samples": 201,
+                "impurity": 0.4749387391401203,
+                "good_count": 123,
+                "bad_count": 78,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.18888888888888888,
+                  0.8111111111111111
+                ],
+                "samples": 90,
+                "impurity": 0.30641975308641967,
+                "good_count": 73,
+                "bad_count": 17,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "internal",
+              "feature": "pickUpHourOfDay_EVENING",
+              "split_value": true,
+              "samples": 62,
+              "impurity": 0.17481789802289294,
+              "good_count": 56,
+              "bad_count": 6,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.07017543859649122,
+                  0.9298245614035088
+                ],
+                "samples": 57,
+                "impurity": 0.13050169282856272,
+                "good_count": 53,
+                "bad_count": 4,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.4,
+                  0.6
+                ],
+                "samples": 5,
+                "impurity": 0.48,
+                "good_count": 3,
+                "bad_count": 2,
+                "depth": 6
+              }
+            }
+          }
+        },
+        "right": {
+          "type": "internal",
+          "feature": "city_Mumbai",
+          "split_value": true,
+          "samples": 139,
+          "impurity": 0.4863102323896278,
+          "good_count": 81,
+          "bad_count": 58,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "sla_Immediate",
+            "split_value": true,
+            "samples": 85,
+            "impurity": 0.4999307958477509,
+            "good_count": 43,
+            "bad_count": 42,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "city_Hyderabad",
+              "split_value": true,
+              "samples": 82,
+              "impurity": 0.4997025580011898,
+              "good_count": 40,
+              "bad_count": 42,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.5,
+                  0.5
+                ],
+                "samples": 80,
+                "impurity": 0.5,
+                "good_count": 40,
+                "bad_count": 40,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 0,
+                "class_probabilities": [
+                  1.0,
+                  0.0
+                ],
+                "samples": 2,
+                "impurity": 0.0,
+                "good_count": 0,
+                "bad_count": 2,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.0,
+                1.0
+              ],
+              "samples": 3,
+              "impurity": 0.0,
+              "good_count": 3,
+              "bad_count": 0,
+              "depth": 5
+            }
+          },
+          "right": {
+            "type": "internal",
+            "feature": "dayType_WEEKEND",
+            "split_value": true,
+            "samples": 54,
+            "impurity": 0.41700960219478733,
+            "good_count": 38,
+            "bad_count": 16,
+            "depth": 4,
+            "left": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.35135135135135137,
+                0.6486486486486487
+              ],
+              "samples": 37,
+              "impurity": 0.4558071585098612,
+              "good_count": 24,
+              "bad_count": 13,
+              "depth": 5
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 1,
+              "class_probabilities": [
+                0.17647058823529413,
+                0.8235294117647058
+              ],
+              "samples": 17,
+              "impurity": 0.2906574394463668,
+              "good_count": 14,
+              "bad_count": 3,
+              "depth": 5
+            }
+          }
+        }
+      }
+    },
+    "right": {
+      "type": "internal",
+      "feature": "city_Delhi NCR",
+      "split_value": true,
+      "samples": 2330,
+      "impurity": 0.34768590322164705,
+      "good_count": 1808,
+      "bad_count": 522,
+      "depth": 1,
+      "left": {
+        "type": "internal",
+        "feature": "dayType_WEEKEND",
+        "split_value": true,
+        "samples": 2162,
+        "impurity": 0.3192221030823379,
+        "good_count": 1731,
+        "bad_count": 431,
+        "depth": 2,
+        "left": {
+          "type": "internal",
+          "feature": "city_Pune",
+          "split_value": true,
+          "samples": 868,
+          "impurity": 0.2056398521947802,
+          "good_count": 767,
+          "bad_count": 101,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "city_Hyderabad",
+            "split_value": true,
+            "samples": 854,
+            "impurity": 0.19224588518557106,
+            "good_count": 762,
+            "bad_count": 92,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "zone_demand_popularity_POPULARITY_INDEX_5",
+              "split_value": true,
+              "samples": 761,
+              "impurity": 0.16489818189981031,
+              "good_count": 692,
+              "bad_count": 69,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.0794979079497908,
+                  0.9205020920502092
+                ],
+                "samples": 717,
+                "impurity": 0.1463559811627948,
+                "good_count": 660,
+                "bad_count": 57,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.2727272727272727,
+                  0.7272727272727273
+                ],
+                "samples": 44,
+                "impurity": 0.39669421487603307,
+                "good_count": 32,
+                "bad_count": 12,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "internal",
+              "feature": "sla_Immediate",
+              "split_value": true,
+              "samples": 93,
+              "impurity": 0.37229737541912367,
+              "good_count": 70,
+              "bad_count": 23,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.2839506172839506,
+                  0.7160493827160493
+                ],
+                "samples": 81,
+                "impurity": 0.4066453284560281,
+                "good_count": 58,
+                "bad_count": 23,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.0,
+                  1.0
+                ],
+                "samples": 12,
+                "impurity": 0.0,
+                "good_count": 12,
+                "bad_count": 0,
+                "depth": 6
+              }
+            }
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 0,
+            "class_probabilities": [
+              0.6428571428571429,
+              0.35714285714285715
+            ],
+            "samples": 14,
+            "impurity": 0.4591836734693877,
+            "good_count": 5,
+            "bad_count": 9,
+            "depth": 4
+          }
+        },
+        "right": {
+          "type": "internal",
+          "feature": "city_Chennai",
+          "split_value": true,
+          "samples": 1294,
+          "impurity": 0.37997271917230635,
+          "good_count": 964,
+          "bad_count": 330,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "zone_demand_popularity_POPULARITY_INDEX_4",
+            "split_value": true,
+            "samples": 1228,
+            "impurity": 0.3907561353436111,
+            "good_count": 901,
+            "bad_count": 327,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "zone_demand_popularity_POPULARITY_INDEX_5",
+              "split_value": true,
+              "samples": 1079,
+              "impurity": 0.3667591160249468,
+              "good_count": 818,
+              "bad_count": 261,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.23352713178294573,
+                  0.7664728682170543
+                ],
+                "samples": 1032,
+                "impurity": 0.3579844210083528,
+                "good_count": 791,
+                "bad_count": 241,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.425531914893617,
+                  0.574468085106383
+                ],
+                "samples": 47,
+                "impurity": 0.4889090086011769,
+                "good_count": 27,
+                "bad_count": 20,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "internal",
+              "feature": "sla_Immediate",
+              "split_value": true,
+              "samples": 149,
+              "impurity": 0.49349128417638843,
+              "good_count": 83,
+              "bad_count": 66,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.46153846153846156,
+                  0.5384615384615384
+                ],
+                "samples": 143,
+                "impurity": 0.4970414201183432,
+                "good_count": 77,
+                "bad_count": 66,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 1,
+                "class_probabilities": [
+                  0.0,
+                  1.0
+                ],
+                "samples": 6,
+                "impurity": 0.0,
+                "good_count": 6,
+                "bad_count": 0,
+                "depth": 6
+              }
+            }
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 1,
+            "class_probabilities": [
+              0.045454545454545456,
+              0.9545454545454546
+            ],
+            "samples": 66,
+            "impurity": 0.08677685950413205,
+            "good_count": 63,
+            "bad_count": 3,
+            "depth": 4
+          }
+        }
+      },
+      "right": {
+        "type": "internal",
+        "feature": "sla_Immediate",
+        "split_value": true,
+        "samples": 168,
+        "impurity": 0.4965277777777779,
+        "good_count": 77,
+        "bad_count": 91,
+        "depth": 2,
+        "left": {
+          "type": "internal",
+          "feature": "zone_demand_popularity_POPULARITY_INDEX_3",
+          "split_value": true,
+          "samples": 161,
+          "impurity": 0.4914933837429112,
+          "good_count": 70,
+          "bad_count": 91,
+          "depth": 3,
+          "left": {
+            "type": "internal",
+            "feature": "booking_type_outstation",
+            "split_value": true,
+            "samples": 147,
+            "impurity": 0.49720024064047386,
+            "good_count": 68,
+            "bad_count": 79,
+            "depth": 4,
+            "left": {
+              "type": "internal",
+              "feature": "booking_type_4hr",
+              "split_value": true,
+              "samples": 142,
+              "impurity": 0.49841301329101373,
+              "good_count": 67,
+              "bad_count": 75,
+              "depth": 5,
+              "left": {
+                "type": "leaf",
+                "prediction": 0,
+                "class_probabilities": [
+                  0.524822695035461,
+                  0.475177304964539
+                ],
+                "samples": 141,
+                "impurity": 0.49876766762235303,
+                "good_count": 67,
+                "bad_count": 74,
+                "depth": 6
+              },
+              "right": {
+                "type": "leaf",
+                "prediction": 0,
+                "class_probabilities": [
+                  1.0,
+                  0.0
+                ],
+                "samples": 1,
+                "impurity": 0.0,
+                "good_count": 0,
+                "bad_count": 1,
+                "depth": 6
+              }
+            },
+            "right": {
+              "type": "leaf",
+              "prediction": 0,
+              "class_probabilities": [
+                0.8,
+                0.2
+              ],
+              "samples": 5,
+              "impurity": 0.31999999999999984,
+              "good_count": 1,
+              "bad_count": 4,
+              "depth": 5
+            }
+          },
+          "right": {
+            "type": "leaf",
+            "prediction": 0,
+            "class_probabilities": [
+              0.8571428571428571,
+              0.14285714285714285
+            ],
+            "samples": 14,
+            "impurity": 0.24489795918367352,
+            "good_count": 2,
+            "bad_count": 12,
+            "depth": 4
+          }
+        },
+        "right": {
+          "type": "leaf",
+          "prediction": 1,
+          "class_probabilities": [
+            0.0,
+            1.0
+          ],
+          "samples": 7,
+          "impurity": 0.0,
+          "good_count": 7,
+          "bad_count": 0,
+          "depth": 3
+        }
+      }
+    }
+  }
+}

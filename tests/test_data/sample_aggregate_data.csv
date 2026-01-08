@@ -1,0 +1,9 @@
+feature1,feature2,feature3,good_count,bad_count,total_count
+A,X,1,150,50,200
+A,X,0,80,20,100
+A,Y,1,70,30,100
+A,Y,0,60,40,100
+B,X,1,90,10,100
+B,X,0,40,60,100
+B,Y,1,30,70,100
+B,Y,0,20,80,100

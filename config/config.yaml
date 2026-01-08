@@ -1,0 +1,46 @@
+# Configuration for CART Decision Tree Training
+# For DUAggregateData.csv dataset
+
+# Feature columns to use for training
+features:
+  - source                    # ios, android
+  - estimated_usage_bins      # LTE_1_HOUR, etc.
+  - city                      # Bangalore, Hyderabad, Delhi NCR, etc.
+  - zone                      # Zone numbers
+  - zone_demand_popularity    # POPULARITY_INDEX_1, POPULARITY_INDEX_2, etc.
+  - dayType                   # WEEKEND, NORMAL_WEEKDAY, etc.
+  - pickUpHourOfDay          # VERYLATE, LATENIGHT, MORNING, etc.
+  - sla                      # Scheduled, On-demand, etc.
+  - booking_type             # one_way_trip, etc.
+
+# Target columns for binary classification
+target_good_col: DU_good_cnt    # Count of positive class samples
+target_bad_col: DU_Bad_Count    # Count of negative class samples
+
+# Hyperparameters for CART algorithm
+hyperparameters:
+  max_depth: 6                     # Maximum tree depth (matches theta sketches)
+  min_samples_leaf: 20             # Minimum samples required for a leaf node
+  min_impurity_decrease: 0.001     # Minimum impurity decrease for splits
+  random_state: 42                 # For reproducible results
+
+# Model metadata
+model_info:
+  name: "DU_Aggregate_CART"
+  description: "CART decision tree for ride-hailing demand-utilization prediction"
+  dataset: "DUAggregateData.csv"
+  algorithm: "CART with one-hot encoding"
+  target_type: "binary_classification"
+
+# Optional: Feature engineering settings
+feature_engineering:
+  one_hot_encoding: true           # Always true for this implementation
+  handle_missing: "skip"           # Skip rows with missing values
+
+# Optional: Validation settings
+validation:
+  enable_validation: false         # Set to true to enable basic validation
+  validation_checks:
+    - "check_target_distribution"
+    - "check_feature_completeness"
+    - "check_sample_counts"
