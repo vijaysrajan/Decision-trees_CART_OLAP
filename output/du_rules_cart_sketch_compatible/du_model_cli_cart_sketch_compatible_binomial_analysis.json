@@ -1,0 +1,316 @@
+{
+  "total_rules": 34,
+  "binomial_tests": [
+    {
+      "rule_id": 1,
+      "samples": 12794,
+      "positive_count": 11560,
+      "positive_rate": 0.9035,
+      "z_score": 91.2912,
+      "significant": true,
+      "confidence_level": 0.9035
+    },
+    {
+      "rule_id": 2,
+      "samples": 697,
+      "positive_count": 690,
+      "positive_rate": 0.99,
+      "z_score": 25.8705,
+      "significant": true,
+      "confidence_level": 0.99
+    },
+    {
+      "rule_id": 3,
+      "samples": 69,
+      "positive_count": 42,
+      "positive_rate": 0.6087,
+      "z_score": 1.8058,
+      "significant": false,
+      "confidence_level": 0.6087
+    },
+    {
+      "rule_id": 4,
+      "samples": 97,
+      "positive_count": 82,
+      "positive_rate": 0.8454,
+      "z_score": 6.8028,
+      "significant": true,
+      "confidence_level": 0.8454
+    },
+    {
+      "rule_id": 5,
+      "samples": 61,
+      "positive_count": 47,
+      "positive_rate": 0.7705,
+      "z_score": 4.2252,
+      "significant": true,
+      "confidence_level": 0.7705
+    },
+    {
+      "rule_id": 6,
+      "samples": 90,
+      "positive_count": 55,
+      "positive_rate": 0.6111,
+      "z_score": 2.1082,
+      "significant": true,
+      "confidence_level": 0.6111
+    },
+    {
+      "rule_id": 7,
+      "samples": 644,
+      "positive_count": 464,
+      "positive_rate": 0.7205,
+      "z_score": 11.1912,
+      "significant": true,
+      "confidence_level": 0.7205
+    },
+    {
+      "rule_id": 8,
+      "samples": 230,
+      "positive_count": 193,
+      "positive_rate": 0.8391,
+      "z_score": 10.2863,
+      "significant": true,
+      "confidence_level": 0.8391
+    },
+    {
+      "rule_id": 9,
+      "samples": 62,
+      "positive_count": 60,
+      "positive_rate": 0.9677,
+      "z_score": 7.366,
+      "significant": true,
+      "confidence_level": 0.9677
+    },
+    {
+      "rule_id": 10,
+      "samples": 249,
+      "positive_count": 204,
+      "positive_rate": 0.8193,
+      "z_score": 10.0762,
+      "significant": true,
+      "confidence_level": 0.8193
+    },
+    {
+      "rule_id": 11,
+      "samples": 116,
+      "positive_count": 112,
+      "positive_rate": 0.9655,
+      "z_score": 10.0275,
+      "significant": true,
+      "confidence_level": 0.9655
+    },
+    {
+      "rule_id": 12,
+      "samples": 241,
+      "positive_count": 227,
+      "positive_rate": 0.9419,
+      "z_score": 13.7205,
+      "significant": true,
+      "confidence_level": 0.9419
+    },
+    {
+      "rule_id": 13,
+      "samples": 96,
+      "positive_count": 93,
+      "positive_rate": 0.9688,
+      "z_score": 9.1856,
+      "significant": true,
+      "confidence_level": 0.9688
+    },
+    {
+      "rule_id": 14,
+      "samples": 1397,
+      "positive_count": 1244,
+      "positive_rate": 0.8905,
+      "z_score": 29.1895,
+      "significant": true,
+      "confidence_level": 0.8905
+    },
+    {
+      "rule_id": 15,
+      "samples": 92,
+      "positive_count": 66,
+      "positive_rate": 0.7174,
+      "z_score": 4.1703,
+      "significant": true,
+      "confidence_level": 0.7174
+    },
+    {
+      "rule_id": 16,
+      "samples": 397,
+      "positive_count": 326,
+      "positive_rate": 0.8212,
+      "z_score": 12.7981,
+      "significant": true,
+      "confidence_level": 0.8212
+    },
+    {
+      "rule_id": 17,
+      "samples": 189,
+      "positive_count": 129,
+      "positive_rate": 0.6825,
+      "z_score": 5.019,
+      "significant": true,
+      "confidence_level": 0.6825
+    },
+    {
+      "rule_id": 18,
+      "samples": 201,
+      "positive_count": 123,
+      "positive_rate": 0.6119,
+      "z_score": 3.1741,
+      "significant": true,
+      "confidence_level": 0.6119
+    },
+    {
+      "rule_id": 19,
+      "samples": 90,
+      "positive_count": 73,
+      "positive_rate": 0.8111,
+      "z_score": 5.9029,
+      "significant": true,
+      "confidence_level": 0.8111
+    },
+    {
+      "rule_id": 20,
+      "samples": 62,
+      "positive_count": 56,
+      "positive_rate": 0.9032,
+      "z_score": 6.35,
+      "significant": true,
+      "confidence_level": 0.9032
+    },
+    {
+      "rule_id": 21,
+      "samples": 85,
+      "positive_count": 43,
+      "positive_rate": 0.5059,
+      "z_score": 0.1085,
+      "significant": false,
+      "confidence_level": 0.5059
+    },
+    {
+      "rule_id": 22,
+      "samples": 54,
+      "positive_count": 38,
+      "positive_rate": 0.7037,
+      "z_score": 2.9938,
+      "significant": true,
+      "confidence_level": 0.7037
+    },
+    {
+      "rule_id": 23,
+      "samples": 395,
+      "positive_count": 350,
+      "positive_rate": 0.8861,
+      "z_score": 15.3462,
+      "significant": true,
+      "confidence_level": 0.8861
+    },
+    {
+      "rule_id": 24,
+      "samples": 326,
+      "positive_count": 311,
+      "positive_rate": 0.954,
+      "z_score": 16.3939,
+      "significant": true,
+      "confidence_level": 0.954
+    },
+    {
+      "rule_id": 25,
+      "samples": 90,
+      "positive_count": 67,
+      "positive_rate": 0.7444,
+      "z_score": 4.638,
+      "significant": true,
+      "confidence_level": 0.7444
+    },
+    {
+      "rule_id": 26,
+      "samples": 57,
+      "positive_count": 39,
+      "positive_rate": 0.6842,
+      "z_score": 2.7815,
+      "significant": true,
+      "confidence_level": 0.6842
+    },
+    {
+      "rule_id": 27,
+      "samples": 996,
+      "positive_count": 741,
+      "positive_rate": 0.744,
+      "z_score": 15.3995,
+      "significant": true,
+      "confidence_level": 0.744
+    },
+    {
+      "rule_id": 28,
+      "samples": 83,
+      "positive_count": 77,
+      "positive_rate": 0.9277,
+      "z_score": 7.7933,
+      "significant": true,
+      "confidence_level": 0.9277
+    },
+    {
+      "rule_id": 29,
+      "samples": 66,
+      "positive_count": 40,
+      "positive_rate": 0.6061,
+      "z_score": 1.7233,
+      "significant": false,
+      "confidence_level": 0.6061
+    },
+    {
+      "rule_id": 30,
+      "samples": 83,
+      "positive_count": 43,
+      "positive_rate": 0.5181,
+      "z_score": 0.3293,
+      "significant": false,
+      "confidence_level": 0.5181
+    },
+    {
+      "rule_id": 31,
+      "samples": 66,
+      "positive_count": 63,
+      "positive_rate": 0.9545,
+      "z_score": 7.3855,
+      "significant": true,
+      "confidence_level": 0.9545
+    },
+    {
+      "rule_id": 32,
+      "samples": 60,
+      "positive_count": 22,
+      "positive_rate": 0.3667,
+      "z_score": -2.0656,
+      "significant": true,
+      "confidence_level": 0.6333
+    },
+    {
+      "rule_id": 33,
+      "samples": 51,
+      "positive_count": 25,
+      "positive_rate": 0.4902,
+      "z_score": -0.14,
+      "significant": false,
+      "confidence_level": 0.5098
+    },
+    {
+      "rule_id": 34,
+      "samples": 57,
+      "positive_count": 30,
+      "positive_rate": 0.5263,
+      "z_score": 0.3974,
+      "significant": false,
+      "confidence_level": 0.5263
+    }
+  ],
+  "summary": {
+    "high_confidence_rules": 17,
+    "low_confidence_rules": 17,
+    "total_samples": 20343
+  }
+}

@@ -42,11 +42,14 @@ def main():
 
     print(f"Training tree with {len(feature_cols)} features...")
 
-    # Train a reasonably sized tree
+    # Train tree with hyperparameters matching du_config.yaml from CART_sketch
     cart = AggregateCART(
+        criterion='gini',
         max_depth=6,
-        min_samples_leaf=20,
-        min_impurity_decrease=0.001
+        min_samples_split=100,
+        min_samples_leaf=50,
+        min_impurity_decrease=0.0,
+        random_state=42
     )
 
     cart.fit(df, feature_cols, 'DU_good_cnt', 'DU_Bad_Count')

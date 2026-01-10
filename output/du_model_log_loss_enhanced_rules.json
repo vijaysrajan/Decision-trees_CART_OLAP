@@ -1,0 +1,35 @@
+{
+  "model_source": "output/du_model_log_loss_enhanced.json",
+  "total_rules": 1,
+  "total_samples": 20343,
+  "extraction_metadata": {
+    "tree_structure_type": "CART-OLAP Enhanced",
+    "rule_format": "feature_condition_boolean",
+    "left_condition": "feature == False (condition NOT met)",
+    "right_condition": "feature == True (condition MET)"
+  },
+  "rules": [
+    {
+      "rule_id": 0,
+      "node_path": "root",
+      "sql_where_clause": "1=1",
+      "english_rule": "All samples (no conditions)",
+      "prediction": 1,
+      "prediction_label": "Good_DU",
+      "confidence": 0.8718,
+      "class_counts": {
+        "good": 17735,
+        "bad": 2608
+      },
+      "n_samples": 20343,
+      "class_probabilities": {
+        "good": 0.8718,
+        "bad": 0.1282
+      },
+      "conditions_count": 0,
+      "depth": 0,
+      "impurity": 0.22353152310702407,
+      "feature_conditions": []
+    }
+  ]
+}
