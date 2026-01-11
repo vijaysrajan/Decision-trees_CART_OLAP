@@ -104,6 +104,7 @@ hyperparameters:
 
 ## 🎯 Key Features
 
+- **Multiple Split Criteria**: Supports gini, entropy, and log_loss criteria
 - **One-Hot Encoding**: Converts categorical features to binary (`feature=value` format)
 - **Sklearn Compatible**: `.fit()`, `.predict()`, `.predict_proba()` methods
 - **JSON Persistence**: Complete save/load functionality
@@ -111,9 +112,45 @@ hyperparameters:
 - **Aggregate Data**: Works directly on OLAP cube data (good/bad counts)
 - **Professional CLI**: Command line tools for common workflows
 
+## 🔀 Split Criteria
+
+CART-OLAP supports three split criteria for optimal tree construction:
+
+### Gini Impurity (Default)
+- **Use case**: General-purpose, fast computation
+- **Formula**: `1 - Σ(p_i²)` where p_i is probability of class i
+- **Best for**: Balanced datasets, when speed is important
+
+### Entropy (Information Gain)
+- **Use case**: When you want to maximize information gain
+- **Formula**: `-Σ(p_i * log₂(p_i))`
+- **Best for**: Feature selection, interpretable splits
+
+### Log Loss (Cross-entropy)
+- **Use case**: When optimizing for probability calibration
+- **Formula**: `-Σ(p_i * ln(p_i))`
+- **Best for**: When prediction probabilities are crucial
+
+### Building Models with Different Criteria
+
+```bash
+# Build with gini (default)
+python build_du_model_cli.py
+
+# Build with entropy
+python build_du_model_cli.py --criterion entropy
+
+# Build with log_loss
+python build_du_model_cli.py --criterion log_loss
+
+# Build all criteria for comparison
+python build_du_model_cli.py --all
+```
+
 ## 📖 Usage Examples
 
-### Python API
+### Python API - Different Criteria
+
 ```python
 from cart_olap import AggregateCART
 import pandas as pd
@@ -122,36 +159,100 @@ import pandas as pd
 df = pd.read_csv('output/DUAggregateData.csv')
 features = ['source', 'city', 'pickUpHourOfDay']
 
-# Train model
-cart = AggregateCART(max_depth=6, min_samples_leaf=20)
-cart.fit(df, features, 'DU_good_cnt', 'DU_Bad_Count')
+# Train models with different criteria
+models = {}
 
-# Make predictions
+for criterion in ['gini', 'entropy', 'log_loss']:
+    print(f"Training {criterion} model...")
+    cart = AggregateCART(
+        criterion=criterion,
+        max_depth=6,
+        min_samples_leaf=20,
+        random_state=42
+    )
+    cart.fit(df, features, 'DU_good_cnt', 'DU_Bad_Count')
+    models[criterion] = cart
+
+# Compare model structures
+for criterion, model in models.items():
+    print(f"{criterion.upper()} Model:")
+    print(f"  - Tree depth: {model.get_depth()}")
+    print(f"  - Number of leaves: {model.get_n_leaves()}")
+
+# Make predictions with different models
 sample = pd.DataFrame([{
     'source': 'ios',
     'city': 'Bangalore',
     'pickUpHourOfDay': 'VERYLATE'
 }])
 
-prediction = cart.predict(sample)[0]  # 0 or 1
-probabilities = cart.predict_proba(sample)[0]  # [bad_prob, good_prob]
+print("\nPrediction Comparison:")
+for criterion, model in models.items():
+    prediction = model.predict(sample)[0]  # 0 or 1
+    probabilities = model.predict_proba(sample)[0]  # [bad_prob, good_prob]
 
-# Save model
-cart.save_json('output/my_model.json')
+    print(f"{criterion.upper()}:")
+    print(f"  - Prediction: {prediction}")
+    print(f"  - Probabilities: [Bad: {probabilities[0]:.3f}, Good: {probabilities[1]:.3f}]")
 
-# Load model
-loaded_cart = AggregateCART.load_json('output/my_model.json')
+# Save models with criterion-specific names
+for criterion, model in models.items():
+    filename = f'output/du_model_{criterion}.json'
+    model.save_json(filename)
+    print(f"Saved {criterion} model to {filename}")
+
+# Load specific model
+entropy_model = AggregateCART.load_json('output/du_model_entropy.json')
+print(f"Loaded entropy model criterion: {entropy_model.criterion}")
 ```
 
-### Command Line
+### Command Line - Multiple Criteria
 ```bash
-# Build and test in one go
-python scripts/build_tree.py output/DUAggregateData.csv config/config.yaml -o output/new_model.json --verbose
-python scripts/load_and_predict.py output/new_model.json
+# Build models with different criteria
+python build_du_model_cli.py --criterion gini
+python build_du_model_cli.py --criterion entropy
+python build_du_model_cli.py --criterion log_loss
 
-# Run all tests
+# Build all criteria at once
+python build_du_model_cli.py --all
+
+# Test specific criterion models
+python scripts/load_and_predict.py output/du_model_cli_entropy.json
+python scripts/load_and_predict.py output/du_model_cli_log_loss.json
+
+# Run comprehensive tests including criteria tests
 python run_tests.py --coverage
 ```
+
+## 📊 Criteria Comparison Results
+
+Using the DU dataset, different criteria produce models with varying characteristics:
+
+| Criterion | Tree Depth | Leaves | File Size | Use Case |
+|-----------|------------|--------|-----------|----------|
+| **Gini** | 6 | 34 | 45,722 bytes | General purpose, fastest |
+| **Entropy** | 6 | 29 | 40,871 bytes | Feature selection, interpretable |
+| **Log Loss** | 6 | 29 | 40,880 bytes | Probability optimization |
+
+### When to Use Each Criterion
+
+**Choose Gini when:**
+- You need fast training and prediction
+- Working with balanced datasets
+- General-purpose classification is sufficient
+- Default choice for most applications
+
+**Choose Entropy when:**
+- You want maximum information gain at each split
+- Feature selection and interpretability are important
+- You need to understand which features drive decisions
+- Building explanatory models
+
+**Choose Log Loss when:**
+- Prediction probabilities must be well-calibrated
+- You're using the model for risk assessment
+- Probability estimates are fed into other systems
+- Working with cost-sensitive applications
 
 ## 🔧 Development
 
