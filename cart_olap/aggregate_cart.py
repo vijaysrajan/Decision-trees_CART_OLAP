@@ -687,20 +687,39 @@ class AggregateCART:
 
         return json.dumps(tree_dict, indent=indent, ensure_ascii=False)
 
-    def _node_to_dict(self, node: Union[TreeNode, LeafNode]) -> Dict[str, Any]:
-        """Convert a tree node to dictionary representation."""
+    def _node_to_dict(self, node: Union[TreeNode, LeafNode], path_conditions: List[str] = None) -> Dict[str, Any]:
+        """Convert a tree node to dictionary representation with ancestry path."""
+        if path_conditions is None:
+            path_conditions = []
+
+        # Create the ancestry path string
+        if path_conditions:
+            ancestry_path = " AND ".join(path_conditions)
+        else:
+            ancestry_path = "ROOT"
+
         if node.is_leaf():
             return {
                 "type": "leaf",
                 "prediction": int(node.prediction),
                 "class_probabilities": [float(p) for p in node.class_probabilities],
                 "samples": int(node.samples),
+                "ancestry_path": ancestry_path,
                 "impurity": float(node.impurity),
                 "good_count": int(node.good_count),
                 "bad_count": int(node.bad_count),
                 "depth": int(node.depth)
             }
         else:
+            # Build child path conditions
+            # For left child: feature is FALSE (NOT condition)
+            # For right child: feature is TRUE (condition holds)
+            left_condition = f"{node.feature} != 1"  # Feature is False/Not satisfied
+            right_condition = f"{node.feature} == 1"  # Feature is True/Satisfied
+
+            left_path = path_conditions + [left_condition]
+            right_path = path_conditions + [right_condition]
+
             return {
                 "type": "internal",
                 "feature": node.feature,
@@ -709,12 +728,13 @@ class AggregateCART:
                 "left_condition": f"{node.feature} == 0 (FALSE/NOT)",
                 "right_condition": f"{node.feature} == 1 (TRUE)",
                 "samples": int(node.samples),
+                "ancestry_path": ancestry_path,
                 "impurity": float(node.impurity),
                 "good_count": int(node.good_count),
                 "bad_count": int(node.bad_count),
                 "depth": int(node.depth),
-                "left": self._node_to_dict(node.left) if node.left else None,
-                "right": self._node_to_dict(node.right) if node.right else None
+                "left": self._node_to_dict(node.left, left_path) if node.left else None,
+                "right": self._node_to_dict(node.right, right_path) if node.right else None
             }
 
     def save_json(self, filepath: str, indent: int = 2) -> None:

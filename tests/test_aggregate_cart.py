@@ -283,6 +283,80 @@ class TestAggregateCART:
         # Should be deterministic (though random_state not implemented yet)
         assert np.array_equal(pred1, pred2)
 
+    def test_ancestry_path_functionality(self):
+        """Test ancestry path tracking in tree serialization."""
+        import json
+
+        # Create a simple tree with known structure
+        cart = AggregateCART(max_depth=3, min_samples_leaf=1, random_state=42)
+
+        # Create data that will result in a clear split
+        test_data = pd.DataFrame({
+            'feature_A': ['yes', 'yes', 'no', 'no', 'yes', 'no'],
+            'feature_B': ['high', 'low', 'high', 'low', 'high', 'low'],
+            'good_count': [90, 70, 20, 30, 80, 10],
+            'bad_count': [10, 30, 80, 70, 20, 90]
+        })
+
+        feature_columns = ['feature_A', 'feature_B']
+        cart.fit(test_data, feature_columns, 'good_count', 'bad_count')
+
+        # Get tree as dictionary using to_json method
+        tree_json = cart.to_json()
+        tree_dict = json.loads(tree_json)
+
+        # Verify root node has ROOT ancestry
+        root = tree_dict['tree']
+        assert 'ancestry_path' in root, "Root node should have ancestry_path"
+        assert root['ancestry_path'] == 'ROOT', f"Root ancestry should be 'ROOT', got '{root['ancestry_path']}'"
+
+        # Helper function to recursively check all nodes
+        def check_ancestry_paths(node, expected_prefix=''):
+            assert 'ancestry_path' in node, "All nodes should have ancestry_path"
+
+            if node.get('type') == 'internal':
+                # Check left child if exists
+                if node.get('left'):
+                    left_child = node['left']
+                    assert 'ancestry_path' in left_child, "Left child should have ancestry_path"
+                    # Left child should have "!= 1" condition
+                    if expected_prefix:
+                        assert '!= 1' in left_child['ancestry_path'], "Left child should have '!= 1' condition"
+                    check_ancestry_paths(left_child, left_child['ancestry_path'])
+
+                # Check right child if exists
+                if node.get('right'):
+                    right_child = node['right']
+                    assert 'ancestry_path' in right_child, "Right child should have ancestry_path"
+                    # Right child should have "== 1" condition
+                    if expected_prefix:
+                        assert '== 1' in right_child['ancestry_path'], "Right child should have '== 1' condition"
+                    check_ancestry_paths(right_child, right_child['ancestry_path'])
+
+        # Check all nodes in the tree
+        check_ancestry_paths(root)
+
+        # Verify that ancestry paths contain proper formatting
+        def verify_ancestry_format(node):
+            if 'ancestry_path' in node:
+                path = node['ancestry_path']
+                if path != 'ROOT':
+                    # Should contain either == 1 or != 1
+                    assert ('== 1' in path or '!= 1' in path), f"Path should contain conditions: {path}"
+                    # If multiple conditions, should use AND
+                    if ' AND ' in path:
+                        conditions = path.split(' AND ')
+                        assert len(conditions) >= 2, "Multiple conditions should be joined with AND"
+
+            if node.get('type') == 'internal':
+                if node.get('left'):
+                    verify_ancestry_format(node['left'])
+                if node.get('right'):
+                    verify_ancestry_format(node['right'])
+
+        verify_ancestry_format(root)
+        print("✅ Ancestry path functionality verified successfully")
+
 
 class TestInvalidInputs:
     """Test error handling for invalid inputs."""

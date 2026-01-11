@@ -1,5 +1,5 @@
 {
-  "build_timestamp": "2026-01-11T14:34:23.330357",
+  "build_timestamp": "2026-01-11T17:16:34.739879",
   "data_source": "/Users/agenticai/Library/CloudStorage/GoogleDrive-vijay.sankar.rajan@gmail.com/My Drive/ML and EDA solutions with OLAP cubes/Decision-trees_CART_OLAP/examples/DUAggregateData.csv",
   "base_hyperparameters": {
     "max_depth": 6,
@@ -40,7 +40,7 @@
   "build_results": {
     "gini": {
       "success": true,
-      "file_size": 45722,
+      "file_size": 57881,
       "output_path": "/Users/agenticai/Library/CloudStorage/GoogleDrive-vijay.sankar.rajan@gmail.com/My Drive/ML and EDA solutions with OLAP cubes/Decision-trees_CART_OLAP/output/du_model_cli_gini.json",
       "condition_fields": {
         "split_condition": 33,
@@ -50,7 +50,7 @@
     },
     "entropy": {
       "success": true,
-      "file_size": 40871,
+      "file_size": 50432,
       "output_path": "/Users/agenticai/Library/CloudStorage/GoogleDrive-vijay.sankar.rajan@gmail.com/My Drive/ML and EDA solutions with OLAP cubes/Decision-trees_CART_OLAP/output/du_model_cli_entropy.json",
       "condition_fields": {
         "split_condition": 28,
@@ -60,7 +60,7 @@
     },
     "log_loss": {
       "success": true,
-      "file_size": 40880,
+      "file_size": 50441,
       "output_path": "/Users/agenticai/Library/CloudStorage/GoogleDrive-vijay.sankar.rajan@gmail.com/My Drive/ML and EDA solutions with OLAP cubes/Decision-trees_CART_OLAP/output/du_model_cli_log_loss.json",
       "condition_fields": {
         "split_condition": 28,
